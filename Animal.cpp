@@ -4,7 +4,13 @@
 
 using namespace std;
 
-Animal::Animal() {}
+Animal::Animal(string name, char gender, int b_month, int b_day, int b_year) {
+    this->name = name;
+    this->gender = gender;
+    birth_month = b_month;
+    birth_day = b_day;
+    birth_year = b_year;
+}
 
 void Animal::setID(int id) {
     this->id = id;
@@ -18,14 +24,14 @@ string Animal::getPhylum() {
     return this->phylum;
 }
 
-ostream &operator<<(ostream &os, const Animal &anim) {
-    os << "Name: " << anim.name << endl
-        << "ID: " << anim.id << endl
-        << "Phylum: " << anim.phylum << endl
-        << "Gender: " << anim.gender << endl
-        << "Birthday: " << anim.birth_month << "/" << anim.birth_day
-        << "/" << anim.birth_year << endl;
-    return os;
+string Animal::getBday() {
+    string bday = to_string(this->birth_month) + "/" + to_string(this->birth_day)
+            + "/" + to_string(this->birth_year);
+    return bday;
+}
+
+string Animal::getName() {
+    return this->name;
 }
 
 /**mammals, birds, fish, reptiles and amphibians */

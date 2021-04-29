@@ -7,19 +7,22 @@ using namespace std;
 
 class Animal {
 private:
-    int id;
+    int id = 0;
     string phylum = "chordata";
 public:
-    string name;
     char gender;
     int birth_year;
     int birth_month;
     int birth_day;
-    Animal();
+    Animal(string, char, int, int, int);
     void setID(int id);
     int getID();
     string getPhylum();
-    friend ostream &operator<<(ostream &os, const Animal &anim);
+    string getBday();
+    virtual string getName();//just for testing the animal class in prob 1
+
+protected:
+    string name;
 };
 
 #endif //LAB9_ANIMAL_H
